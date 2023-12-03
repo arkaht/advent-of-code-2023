@@ -23,12 +23,17 @@
     <Text Include="day1.txt" />
     <Text Include="day1-test.txt" />
     <Text Include="day2.txt" />
+    <Text Include="day3.txt" />
+    <Text Include="day3-test.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="day1.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="day2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="day3.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
