@@ -7,6 +7,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <regex>
+#include <thread>
+#include <mutex>
 #include <assert.h>
 
 /**
@@ -29,6 +31,20 @@ struct MapRange
 		return destination_start + offset;
 	}
 };
+
+using almanac_t = std::unordered_map<std::string, std::vector<MapRange>>;
+
+std::vector<std::string> processes
+{
+	"seed-to-soil",
+	"soil-to-fertilizer",
+	"fertilizer-to-water",
+	"water-to-light",
+	"light-to-temperature",
+	"temperature-to-humidity",
+	"humidity-to-location",
+};
+almanac_t almanac;
 
 /**
 * atoi() doesn't account for integers greater than INT_MAX so
@@ -54,7 +70,6 @@ std::string part_one()
 	const std::regex REGEX_MAP_NAME( "([\\w\\-]+) map:" );
 
 	std::vector<uint32_t> seeds;
-	std::unordered_map<std::string, std::vector<MapRange>> almanac;
 	std::string current_map_name;
 
 	//  gather symbols and numbers
@@ -114,16 +129,6 @@ std::string part_one()
 	//uint32_t test = str_to_uint32( "4294967295" );
 
 	//  convert seeds to location
-	std::vector<std::string> processes
-	{
-		"seed-to-soil",
-		"soil-to-fertilizer",
-		"fertilizer-to-water",
-		"water-to-light",
-		"light-to-temperature",
-		"temperature-to-humidity",
-		"humidity-to-location",
-	};
 	for ( const auto& seed : seeds ) 
 	{
 		uint32_t value = seed;
@@ -161,14 +166,67 @@ std::string part_one()
 /**
 * part two
 * 
-* highly slow solution, took me 40 minutes to get the answer
-* maybe try multi-thread or another solution (e.g. reverse brute force?)
+* ~~highly slow solution, took me 40 minutes to get the answer~~
+* 
+* multi-threading solves it for ~15 minutes
+* 
+* try another solution? (e.g. reverse brute force?)
 */
 struct SeedRange
 {
 	uint32_t start;
 	uint32_t length;
 };
+
+class ThreadMinimalValue
+{
+public:
+	ThreadMinimalValue() {};
+
+	void push( uint32_t value )
+	{
+		std::lock_guard lock( _mutex );
+		if ( value > _value ) return;
+
+		_value = value;
+	}
+
+	uint32_t get() { return _value; }
+
+private:
+	uint32_t _value = std::numeric_limits<uint32_t>::max();
+	std::mutex _mutex;
+};
+
+ThreadMinimalValue thread_value;
+
+void thread_compute_seed_range_locations( int id, int size, const SeedRange& seed_range )
+{
+	for ( uint32_t seed = seed_range.start; seed < seed_range.start + seed_range.length; seed++ )
+	{
+		uint32_t value = seed;
+		for ( const auto& process : processes )
+		{
+			const auto& ranges = almanac[process];
+			for ( const auto& range : ranges )
+			{
+				if ( !range.is_within( value ) ) continue;
+
+				value = range.remap( value );
+				break;
+			}
+
+			//std::cout << seed << " : " << process << " : " << value << std::endl;
+		}
+
+		//  set the minimum location
+		thread_value.push( value );
+
+		//std::cout << seed << " : " << value << std::endl;
+	}
+
+	printf( "Thread %d/%d: done!\n", id + 1, size );
+}
 
 std::string part_two()
 {
@@ -181,7 +239,6 @@ std::string part_two()
 	const std::regex REGEX_MAP_NAME( "([\\w\\-]+) map:" );
 
 	std::vector<SeedRange> seed_ranges;
-	std::unordered_map<std::string, std::vector<MapRange>> almanac;
 	std::string current_map_name;
 
 	//  gather symbols and numbers
@@ -241,45 +298,26 @@ std::string part_two()
 	uint32_t minimum_location = std::numeric_limits<uint32_t>().max();
 	//uint32_t test = str_to_uint32( "4294967295" );
 
+	std::vector<std::thread> threads;
+
 	//  convert seeds to location
-	std::vector<std::string> processes
+	int size = seed_ranges.size();
+	for ( int i = 0; i < size; i++ ) 
 	{
-		"seed-to-soil",
-		"soil-to-fertilizer",
-		"fertilizer-to-water",
-		"water-to-light",
-		"light-to-temperature",
-		"temperature-to-humidity",
-		"humidity-to-location",
-	};
-	for ( const auto& seed_range : seed_ranges ) 
-	{
-		for ( uint32_t seed = seed_range.start; seed < seed_range.start + seed_range.length; seed++ )
-		{
-			uint32_t value = seed;
-			for ( const auto& process : processes )
-			{
-				const auto& ranges = almanac[process];
-				for ( const auto& range : ranges )
-				{
-					if ( !range.is_within( value ) ) continue;
-
-					value = range.remap( value );
-					break;
-				}
-
-				//std::cout << seed << " : " << process << " : " << value << std::endl;
-			}
-
-			//  set the minimum location
-			if ( value < minimum_location )
-			{
-				minimum_location = value;
-			}
-
-			//std::cout << seed << " : " << value << std::endl;
-		}
+		const auto& seed_range = seed_ranges[i];
+		threads.emplace_back( 
+			thread_compute_seed_range_locations,
+			i, size,
+			seed_range
+		);
 	}
+
+	for ( auto& thread : threads )
+	{
+		thread.join();
+	}
+
+	minimum_location = thread_value.get();
 
 	return std::to_string( minimum_location );
 }

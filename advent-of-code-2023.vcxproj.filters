@@ -28,6 +28,7 @@
     <Text Include="day4.txt" />
     <Text Include="day4-test.txt" />
     <Text Include="day5.txt" />
+    <Text Include="day5-test.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="day1.hpp">
