@@ -1,15 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <regex>
-#include <thread>
-#include <mutex>
-#include <assert.h>
+#include "common.h"
 
 /**
 * common
@@ -45,15 +36,6 @@ std::vector<std::string> processes
 	"humidity-to-location",
 };
 almanac_t almanac;
-
-/**
-* atoi() doesn't account for integers greater than INT_MAX so
-* we need a way for uint32_t numbers
-*/
-uint32_t str_to_uint32( const std::string& str )
-{
-	return strtoul( str.c_str(), NULL, 10 );
-}
 
 /**
 * part one
