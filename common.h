@@ -15,9 +15,14 @@
 #include <thread>
 #include <mutex>
 
+int str_to_int( const std::string& str )
+{
+	return atoi( str.c_str() );
+}
+
 /**
 * atoi() doesn't account for integers greater than INT_MAX so
-* we need a way for uint32_t and uint64_t numbers
+* we need a way for uint32_t numbers
 */
 uint32_t str_to_uint32( const std::string& str )
 {

@@ -1,4 +1,4 @@
-#include "day6.hpp"
+#include "day7.hpp"
 
 int main()
 {
