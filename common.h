@@ -8,6 +8,7 @@
 
 #include <string>
 #include <regex>
+#include <numeric>
 
 #include <unordered_map>
 #include <unordered_set>
@@ -35,4 +36,21 @@ uint32_t str_to_uint32( const std::string& str )
 uint64_t str_to_uint64( const std::string& str )
 {
 	return strtoull( str.c_str(), NULL, 10 );
+}
+
+//  https://www.geeksforgeeks.org/lcm-of-given-array-elements/?ref=lbp
+/**
+ * Least Common Multiple of a given array of numbers
+ */
+template <typename T>
+T lcm( const std::vector<T> numbers )
+{
+	T result = numbers[0];
+
+	for ( const T& num : numbers )
+	{
+		result = ( num * result ) / std::gcd( num, result );
+	}
+
+	return result;
 }
