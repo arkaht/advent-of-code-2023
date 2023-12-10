@@ -54,3 +54,30 @@ T lcm( const std::vector<T> numbers )
 
 	return result;
 }
+
+struct Int2
+{
+	int x;
+	int y;
+
+	bool operator==( const Int2& other )
+	{
+		return x == other.x 
+			&& y == other.y;
+	}
+};
+
+int shoelace_area( const std::vector<Int2> polygon )
+{
+	int sum_x = 0, sum_y = 0;
+	for ( int i = 0; i < polygon.size(); i++ )
+	{
+		const Int2& a = polygon[i];
+		const Int2& b = polygon[( i + 1 ) % polygon.size()];
+		//printf( "%d * %d\n", i, ( i + 1 ) % polygon.size() );
+
+		sum_x += a.x * b.y;
+		sum_y += a.y * b.x;
+	}
+	return abs( sum_x - sum_y ) / 2;
+}
