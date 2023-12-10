@@ -1,7 +1,9 @@
-#include "day8.hpp"
+#include "day9.hpp"
 
 int main()
 {
-    std::string answer = part_two();
-    std::cout << answer << std::endl;
+    std::string answer = 
+        //part_one();
+        part_two();
+    std::cout << "Answer: " << answer << std::endl;
 }
