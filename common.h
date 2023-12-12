@@ -86,3 +86,13 @@ int shoelace_area( const std::vector<Int2> polygon )
 	}
 	return abs( sum_x - sum_y ) / 2;
 }
+
+int manhattan_distance( const Int2& a, const Int2& b )
+{
+	return abs( a.x - b.x ) + abs( a.y - b.y );
+}
+
+int tchebychev_distance( const Int2& a, const Int2& b )
+{
+	return std::max( abs( a.x - b.x ), abs( a.y - b.y ) );
+}
