@@ -20,50 +20,50 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="inputs\day1.txt" />
-    <Text Include="inputs\day1-test.txt" />
-    <Text Include="inputs\day2.txt" />
-    <Text Include="inputs\day3.txt" />
-    <Text Include="inputs\day3-test.txt" />
-    <Text Include="inputs\day4.txt" />
-    <Text Include="inputs\day4-test.txt" />
-    <Text Include="inputs\day5.txt" />
-    <Text Include="inputs\day5-test.txt" />
-    <Text Include="inputs\day6.txt" />
-    <Text Include="inputs\day7.txt" />
-    <Text Include="inputs\day8.txt" />
-    <Text Include="inputs\day9.txt" />
+    <Text Include="inputs\day01.txt" />
+    <Text Include="inputs\day01-test.txt" />
+    <Text Include="inputs\day02.txt" />
+    <Text Include="inputs\day03.txt" />
+    <Text Include="inputs\day03-test.txt" />
+    <Text Include="inputs\day04.txt" />
+    <Text Include="inputs\day04-test.txt" />
+    <Text Include="inputs\day05.txt" />
+    <Text Include="inputs\day05-test.txt" />
+    <Text Include="inputs\day06.txt" />
+    <Text Include="inputs\day07.txt" />
+    <Text Include="inputs\day08.txt" />
+    <Text Include="inputs\day09.txt" />
     <Text Include="inputs\day10.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="days\day1.hpp">
+    <ClInclude Include="days\day01.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day2.hpp">
+    <ClInclude Include="days\day02.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day3.hpp">
+    <ClInclude Include="days\day03.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day4.hpp">
+    <ClInclude Include="days\day04.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day5.hpp">
+    <ClInclude Include="days\day05.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day6.hpp">
+    <ClInclude Include="days\day06.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day7.hpp">
+    <ClInclude Include="days\day07.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day8.hpp">
+    <ClInclude Include="days\day08.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="days\day9.hpp">
+    <ClInclude Include="days\day09.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="days\day10.hpp">
