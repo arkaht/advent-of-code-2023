@@ -1,12 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <unordered_map>
-#include <regex>
-#include <assert.h>
+#include "common.h"
 
 /**
 * common
@@ -38,7 +32,7 @@ bool is_aabb( const Int2& start, const Int2& end, const Int2 point )
 std::string part_one()
 {
 	//  open input
-	std::ifstream file( "day3.txt" );
+	std::ifstream file = read_input( "day3.txt" );
 
 	std::vector<Int2> symbols;
 	std::vector<Number> numbers;
@@ -133,7 +127,7 @@ struct Gear
 std::string part_two()
 {
 	//  open input
-	std::ifstream file( "day3.txt" );
+	std::ifstream file = read_input( "day3.txt" );
 
 	std::vector<Gear> gears;
 	std::vector<Number> numbers;

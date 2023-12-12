@@ -44,7 +44,7 @@ almanac_t almanac;
 std::string part_one()
 {
 	//  open input
-	std::ifstream file( "day5.txt" );
+	std::ifstream file = read_input( "day5.txt" );
 
 	const std::regex REGEX_SEED( "(\\d+)" );
 	const std::regex REGEX_RANGE( "(\\d+) (\\d+) (\\d+)" );
@@ -213,7 +213,7 @@ void thread_compute_seed_range_locations( int id, int size, const SeedRange& see
 std::string part_two()
 {
 		//  open input
-	std::ifstream file( "day5.txt" );
+	std::ifstream file = read_input( "day5.txt" );
 
 	const std::regex REGEX_SEED( "(\\d+) (\\d+)" );
 	const std::regex REGEX_RANGE( "(\\d+) (\\d+) (\\d+)" );

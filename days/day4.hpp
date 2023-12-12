@@ -1,13 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <unordered_map>
-#include <unordered_set>
-#include <regex>
-#include <assert.h>
+#include "common.h"
 
 /**
 * common
@@ -21,7 +14,7 @@
 std::string part_one()
 {
 	//  open input
-	std::ifstream file( "day4.txt" );
+	std::ifstream file = read_input( "day4.txt" );
 
 	const std::regex REGEX_CARD_ID( "Card\\s*(\\d+): " );
 	const std::regex REGEX_NUMBER( "([\\d|]+)" );
@@ -81,7 +74,7 @@ std::string part_one()
 std::string part_two()
 {
 	//  open input
-	std::ifstream file( "day4.txt" );
+	std::ifstream file = read_input( "day4.txt" );
 
 	const std::regex REGEX_CARD_ID( "Card\\s*(\\d+): " );
 	const std::regex REGEX_NUMBER( "([\\d|]+)" );

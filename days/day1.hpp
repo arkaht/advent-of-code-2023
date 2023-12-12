@@ -1,14 +1,11 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <unordered_map>
+#include "common.h"
 
 std::string part_one()
 {
     //  open input
-    std::ifstream file( "day1.txt" );
+    std::ifstream file = read_input( "day1.txt" );
 
     int sum = 0;
     while ( file )
@@ -78,7 +75,7 @@ std::string part_two()
     };
 
     //  open input
-    std::ifstream file( "day1.txt" );
+    std::ifstream file = read_input( "day1.txt" );
 
     int sum = 0;
     while ( file )

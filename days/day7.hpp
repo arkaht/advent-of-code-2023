@@ -173,7 +173,7 @@ std::string part_one()
 	using namespace part1;
 
 	//  open input
-	std::ifstream file( "day7.txt" );
+	std::ifstream file = read_input( "day7.txt" );
 
 	const std::regex REGEX_HAND( "(\\w+) (\\d+)" );
 
@@ -337,7 +337,7 @@ std::string part_two()
 	using namespace part2;
 
 	//  open input
-	std::ifstream file( "day7.txt" );
+	std::ifstream file = read_input( "day7.txt" );
 
 	const std::regex REGEX_HAND( "(\\w+) (\\d+)" );
 

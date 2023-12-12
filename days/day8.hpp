@@ -18,7 +18,7 @@ struct Node
 std::string part_one()
 {
 	//  open input
-	std::ifstream file( "day8.txt" );
+	std::ifstream file = read_input( "day8.txt" );
 
 	const std::regex REGEX_NODE( "(\\w+) = \\((\\w+), (\\w+)\\)" );
 
@@ -83,7 +83,7 @@ struct Path
 std::string part_two()
 {
 	//  open input
-	std::ifstream file( "day8.txt" );
+	std::ifstream file = read_input( "day8.txt" );
 
 	const std::regex REGEX_NODE( "(\\w+) = \\((\\w+), (\\w+)\\)" );
 

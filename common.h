@@ -16,6 +16,11 @@
 #include <thread>
 #include <mutex>
 
+std::ifstream read_input( const std::string& filename )
+{
+	return std::ifstream( "inputs/" + filename );
+}
+
 int str_to_int( const std::string& str )
 {
 	return atoi( str.c_str() );

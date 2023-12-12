@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,33 +132,33 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="day1-test.txt" />
-    <Text Include="day1.txt" />
-    <Text Include="day10.txt" />
-    <Text Include="day2.txt" />
-    <Text Include="day3-test.txt" />
-    <Text Include="day3.txt" />
-    <Text Include="day4-test.txt" />
-    <Text Include="day4.txt" />
-    <Text Include="day5-test.txt" />
-    <Text Include="day5.txt" />
-    <Text Include="day6.txt" />
-    <Text Include="day7.txt" />
-    <Text Include="day8.txt" />
-    <Text Include="day9.txt" />
+    <Text Include="inputs\day1-test.txt" />
+    <Text Include="inputs\day1.txt" />
+    <Text Include="inputs\day10.txt" />
+    <Text Include="inputs\day2.txt" />
+    <Text Include="inputs\day3-test.txt" />
+    <Text Include="inputs\day3.txt" />
+    <Text Include="inputs\day4-test.txt" />
+    <Text Include="inputs\day4.txt" />
+    <Text Include="inputs\day5-test.txt" />
+    <Text Include="inputs\day5.txt" />
+    <Text Include="inputs\day6.txt" />
+    <Text Include="inputs\day7.txt" />
+    <Text Include="inputs\day8.txt" />
+    <Text Include="inputs\day9.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
-    <ClInclude Include="day1.hpp" />
-    <ClInclude Include="day10.hpp" />
-    <ClInclude Include="day2.hpp" />
-    <ClInclude Include="day3.hpp" />
-    <ClInclude Include="day4.hpp" />
-    <ClInclude Include="day5.hpp" />
-    <ClInclude Include="day6.hpp" />
-    <ClInclude Include="day7.hpp" />
-    <ClInclude Include="day8.hpp" />
-    <ClInclude Include="day9.hpp" />
+    <ClInclude Include="days\day1.hpp" />
+    <ClInclude Include="days\day10.hpp" />
+    <ClInclude Include="days\day2.hpp" />
+    <ClInclude Include="days\day3.hpp" />
+    <ClInclude Include="days\day4.hpp" />
+    <ClInclude Include="days\day5.hpp" />
+    <ClInclude Include="days\day6.hpp" />
+    <ClInclude Include="days\day7.hpp" />
+    <ClInclude Include="days\day8.hpp" />
+    <ClInclude Include="days\day9.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,7 +12,7 @@
 std::string part_one()
 {
 	//  open input
-	std::ifstream file( "day9.txt" );
+	std::ifstream file = read_input( "day9.txt" );
 
 	const std::regex REGEX_NUMBER( "(\\-?\\d+)" );
 
@@ -110,7 +110,7 @@ std::string part_one()
 std::string part_two()
 {
 	//  open input
-	std::ifstream file( "day9.txt" );
+	std::ifstream file = read_input( "day9.txt" );
 
 	const std::regex REGEX_NUMBER( "(\\-?\\d+)" );
 

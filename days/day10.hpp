@@ -90,7 +90,7 @@ std::string part_one()
 	using namespace part1;
 
 	//  open input
-	std::ifstream file( "day10.txt" );
+	std::ifstream file = read_input( "day10.txt" );
 
 	pipes_t pipes;
 	Int2 start_pos {};
@@ -222,7 +222,7 @@ std::string part_two()
 	using namespace part2;
 
 	//  open input
-	std::ifstream file( "day10.txt" );
+	std::ifstream file = read_input( "day10.txt" );
 
 	pipes_t pipes;
 	Int2 start_pos {};

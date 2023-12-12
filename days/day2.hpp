@@ -1,12 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <unordered_map>
-#include <regex>
-#include <assert.h>
+#include "common.h"
 
 std::string part_one()
 {
@@ -21,7 +15,7 @@ std::string part_one()
 	const std::regex REGEX_SUBSET( "(\\d+) (\\w+)" );
 
 	//  open input
-	std::ifstream file( "day2.txt" );
+	std::ifstream file = read_input( "day2.txt" );
 
 	int sum = 0;
 	std::string line;
@@ -82,7 +76,7 @@ std::string part_two()
 	const std::regex REGEX_SUBSET( "(\\d+) (\\w+)" );
 
 	//  open input
-	std::ifstream file( "day2.txt" );
+	std::ifstream file = read_input( "day2.txt" );
 
 	int sum = 0;
 	std::string line;
